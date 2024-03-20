@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_button.dart';
 
+import 'home_screen.dart';
 import 'widgets/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -17,6 +18,15 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
+
+  // login method
+
+  void login() {
+    // navigate to the home
+
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
           // sign in button
 
-          CustomButton(onTap: () {}, text: 'Sign In'),
+          CustomButton(onTap: login, text: 'Sign In'),
 
           const SizedBox(
             height: 25,

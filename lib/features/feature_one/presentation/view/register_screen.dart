@@ -16,6 +16,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   // text editing controllers
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           // message, app slogan
 
           Text(
-            'HUNGRO',
+            'Let\'s create an account for you',
             style: TextStyle(
               fontSize: 16,
               color: Theme.of(context).colorScheme.inversePrimary,
@@ -61,7 +63,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
           const SizedBox(
             height: 10,
           ),
+
           // password textfield
+
+          CustomTextField(
+            textEditingController: passwordController,
+            hintText: 'Password',
+            obscureText: true,
+          ),
+
+          const SizedBox(
+            height: 10,
+          ),
+
+          // confirm password textfield
 
           CustomTextField(
             textEditingController: passwordController,
@@ -77,19 +92,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
             height: 25,
           ),
 
-          // not a member? register now
+          // Already have an account ? Login here
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Not a member?'),
+              const Text('Already have an account?'),
               const SizedBox(
                 width: 4,
               ),
               GestureDetector(
                 onTap: widget.onTap,
                 child: Text(
-                  'Register now',
+                  'Login Now',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                     fontWeight: FontWeight.bold,
