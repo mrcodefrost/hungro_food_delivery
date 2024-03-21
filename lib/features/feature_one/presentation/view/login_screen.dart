@@ -80,6 +80,9 @@ class _LoginScreenState extends State<LoginScreen> {
             obscureText: true,
           ),
 
+          const SizedBox(
+            height: 25,
+          ),
           // sign in button
 
           CustomButton(onTap: login, text: 'Sign In'),

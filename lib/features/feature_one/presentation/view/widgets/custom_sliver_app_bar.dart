@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hungro_food_delivery/features/feature_one/presentation/view/cart_screen.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   final Widget child;
@@ -16,7 +17,10 @@ class CustomSliverAppBar extends StatelessWidget {
       pinned: true,
       actions: [
         // cart button
-        IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart))
+        IconButton(
+            onPressed: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const CartScreen())),
+            icon: Icon(Icons.shopping_cart))
       ],
       backgroundColor: Theme.of(context).colorScheme.background,
       foregroundColor: Theme.of(context).colorScheme.inversePrimary,
