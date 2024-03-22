@@ -31,6 +31,9 @@ migrate_working_dir/
 .pub/
 /build/
 
+# custom
+.firebase/
+
 # Symbolication related
 app.*.symbols
 

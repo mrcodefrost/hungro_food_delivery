@@ -20,7 +20,7 @@ class CustomTabBar extends StatelessWidget {
       child: TabBar(
         controller: tabController,
         tabs: _buildCategoryTabs(),
-        indicatorColor: Colors.red,
+        indicatorColor: Theme.of(context).colorScheme.inversePrimary,
         isScrollable: true,
       ),
     );

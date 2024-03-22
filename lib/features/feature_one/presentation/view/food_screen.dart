@@ -54,7 +54,7 @@ class _FoodScreenState extends State<FoodScreen> {
 
                 Image.asset(
                   widget.food.imagePath,
-                  height: 450,
+                  width: double.infinity,
                 ),
 
                 Padding(

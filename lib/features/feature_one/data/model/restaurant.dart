@@ -420,7 +420,7 @@ class MenuStrings {
       'assets/images/rice/kimchiFriedRice.jpg';
   static const String vegWokTossedRice = 'Veg Wok Tossed Rice';
   static const String vegWokTossedRiceImg =
-      'assets/images/rice/vegWokTossedRice.jpeg';
+      'assets/images/rice/vegWokTossedRice.jpg';
 
   // noodles
 
