@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hungro_food_delivery/features/feature_one/domain/auth_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_button.dart';
 
-import 'home_screen.dart';
 import 'widgets/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -21,11 +21,29 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // login method
 
-  void login() {
-    // navigate to the home
+  void login() async {
+    // get instance of auth service
 
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+    final authService = AuthService();
+
+    // try sign in
+
+    try {
+      await authService.signInWithEmailPassword(
+          emailController.text, passwordController.text);
+    }
+
+    // display any errors
+
+    catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(e.toString()),
+              ));
+    }
+
+    // navigate to home using auth gate
   }
 
   @override

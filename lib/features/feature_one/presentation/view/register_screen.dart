@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hungro_food_delivery/features/feature_one/domain/auth_service.dart';
 
 import 'widgets/custom_button.dart';
 import 'widgets/custom_textfield.dart';
@@ -18,6 +19,39 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
+  // register method
+
+  void register() async {
+    // get auth service
+    final authService = AuthService();
+
+    // check if the passwords match -> create user
+    if (passwordController.text == confirmPasswordController.text) {
+      // try creating user
+
+      try {
+        await authService.signUpWithEmailPassword(
+            emailController.text, passwordController.text);
+      } catch (e) {
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  title: Text(e.toString()),
+                ));
+      }
+    }
+
+    // if passwords don't match -> show error
+
+    else {
+      showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+                title: Text('Passwords don\'t match'),
+              ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,14 +113,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
           // confirm password textfield
 
           CustomTextField(
-            textEditingController: passwordController,
+            textEditingController: confirmPasswordController,
             hintText: 'Password',
             obscureText: true,
           ),
 
           // sign in button
 
-          CustomButton(onTap: () {}, text: 'Sign In'),
+          CustomButton(onTap: register, text: 'Sign Up'),
 
           const SizedBox(
             height: 25,

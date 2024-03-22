@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           CustomSliverAppBar(
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen>
                   CurrentLocation(),
 
                   // description box
-                  DescriptionBox(),
+                  const DescriptionBox(),
                 ],
               ))
         ],

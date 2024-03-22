@@ -52,7 +52,10 @@ class _FoodScreenState extends State<FoodScreen> {
               children: [
                 // food image
 
-                Image.asset(widget.food.imagePath),
+                Image.asset(
+                  widget.food.imagePath,
+                  height: 450,
+                ),
 
                 Padding(
                   padding: const EdgeInsets.all(25.0),
@@ -164,7 +167,7 @@ class _FoodScreenState extends State<FoodScreen> {
                 shape: BoxShape.circle,
               ),
               child: IconButton(
-                icon: Icon(Icons.arrow_back_ios_rounded),
+                icon: const Icon(Icons.arrow_back_ios_rounded),
                 onPressed: () => Navigator.pop(context),
               ),
             ),

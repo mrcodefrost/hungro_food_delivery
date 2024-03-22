@@ -23,13 +23,13 @@ class CartScreen extends StatelessWidget {
           actions: [
             // clear cart button
             IconButton(
-              icon: Icon(Icons.delete),
+              icon: const Icon(Icons.delete),
               onPressed: () {
                 showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                          title:
-                              Text('Are you sure you want to empty the cart?'),
+                          title: const Text(
+                              'Are you sure you want to empty the cart?'),
                           actions: [
                             // cancel button
                             TextButton(
@@ -59,7 +59,7 @@ class CartScreen extends StatelessWidget {
               child: Column(
                 children: [
                   userCart.isEmpty
-                      ? Center(
+                      ? const Center(
                           child: Text('So lonely in here..'),
                         )
                       : Expanded(
@@ -72,18 +72,20 @@ class CartScreen extends StatelessWidget {
                                 // return cart tile UI
                                 return CartTile(cartItem: cartItem);
                               }),
-                        )
+                        ),
                 ],
               ),
             ),
 
             // button to pay
-            CustomButton(
-                onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const PaymentScreen())),
-                text: 'Go to Checkout'),
+            userCart.isEmpty
+                ? Container()
+                : CustomButton(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PaymentScreen())),
+                    text: 'Go to Checkout'),
 
             const SizedBox(
               height: 25,

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hungro_food_delivery/features/feature_one/domain/auth_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_drawer_tile.dart';
 
 import '../settings_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
+
+  void logout() {
+    final authService = AuthService();
+    authService.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +50,7 @@ class CustomDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SettingsScreen()));
+                  MaterialPageRoute(builder: (context) => const SettingsScreen()));
             },
             icon: Icons.settings,
           ),
@@ -53,7 +59,7 @@ class CustomDrawer extends StatelessWidget {
           // logout list tile
           CustomDrawerTile(
             text: 'L O G O U T',
-            onTap: () {},
+            onTap: logout,
             icon: Icons.logout,
           ),
 

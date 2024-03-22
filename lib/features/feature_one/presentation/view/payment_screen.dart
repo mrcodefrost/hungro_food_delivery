@@ -53,7 +53,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    DeliveryProgressScreen()));
+                                    const DeliveryProgressScreen()));
                       },
                       child: const Text("Yes")),
                 ],
@@ -99,7 +99,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 },
                 formKey: formKey),
 
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
 

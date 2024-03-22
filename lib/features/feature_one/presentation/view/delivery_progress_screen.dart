@@ -1,8 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:hungro_food_delivery/database/firestore_service.dart';
+import 'package:hungro_food_delivery/features/feature_one/data/model/restaurant.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/receipt_widget.dart';
+import 'package:provider/provider.dart';
 
-class DeliveryProgressScreen extends StatelessWidget {
+class DeliveryProgressScreen extends StatefulWidget {
   const DeliveryProgressScreen({super.key});
+
+  @override
+  State<DeliveryProgressScreen> createState() => _DeliveryProgressScreenState();
+}
+
+class _DeliveryProgressScreenState extends State<DeliveryProgressScreen> {
+  // get access to database
+  FirestoreService db = FirestoreService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    // if we get to this page, submit order to firestore db
+    String receipt = context.read<Restaurant>().displayCartReceipt();
+    db.saveOrderToDatabase(receipt);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +32,7 @@ class DeliveryProgressScreen extends StatelessWidget {
         title: const Text('Delivery in progress...'),
         backgroundColor: Colors.transparent,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [Receipt()],
         ),
@@ -28,9 +49,9 @@ Widget _buildBottomNavBar(BuildContext context) {
     height: 100,
     decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.secondary,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(40), topRight: Radius.circular(40))),
-    padding: EdgeInsets.all(25),
+    padding: const EdgeInsets.all(25),
     child: Row(
       children: [
         Container(
@@ -40,7 +61,7 @@ Widget _buildBottomNavBar(BuildContext context) {
           ),
           child: IconButton(
             onPressed: () {},
-            icon: Icon(Icons.person),
+            icon: const Icon(Icons.person),
           ),
         ),
         const SizedBox(
@@ -84,7 +105,7 @@ Widget _buildBottomNavBar(BuildContext context) {
               ),
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.message),
+                icon: const Icon(Icons.message),
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),
@@ -102,7 +123,7 @@ Widget _buildBottomNavBar(BuildContext context) {
               ),
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.call),
+                icon: const Icon(Icons.call),
                 color: Colors.green,
               ),
             ),

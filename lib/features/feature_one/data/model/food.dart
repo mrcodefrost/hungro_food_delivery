@@ -17,7 +17,7 @@ class Food {
 }
 
 // Food categories
-enum FoodCategory { burgers, salads, slides, desserts, drinks }
+enum FoodCategory { slides, rice, noodles, dimsums, soups, drinks }
 
 // Food Add ons
 

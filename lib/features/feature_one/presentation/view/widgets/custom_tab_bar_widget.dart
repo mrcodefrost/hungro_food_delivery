@@ -9,7 +9,7 @@ class CustomTabBar extends StatelessWidget {
   List<Tab> _buildCategoryTabs() {
     return FoodCategory.values.map((category) {
       return Tab(
-        text: category.toString().split('.').last,
+        text: category.toString().split('.').last.toUpperCase(),
       );
     }).toList();
   }
@@ -20,6 +20,8 @@ class CustomTabBar extends StatelessWidget {
       child: TabBar(
         controller: tabController,
         tabs: _buildCategoryTabs(),
+        indicatorColor: Colors.red,
+        isScrollable: true,
       ),
     );
   }

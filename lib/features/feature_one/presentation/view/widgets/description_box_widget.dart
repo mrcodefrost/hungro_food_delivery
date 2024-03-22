@@ -34,7 +34,7 @@ class DescriptionBox extends StatelessWidget {
           Column(
             children: [
               Text(
-                'Rs. 999',
+                'Rs. 99',
                 style: primaryTextStyle,
               ),
               Text(

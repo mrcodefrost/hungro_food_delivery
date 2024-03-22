@@ -52,25 +52,27 @@ class CartTile extends StatelessWidget {
                               'Rs.${cartItem.food.price}',
                               style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+
+                            // increment or decrement the count
+
+                            QuantitySelector(
+                              quantity: cartItem.quantity,
+                              food: cartItem.food,
+                              onIncrement: () {
+                                restaurant.addToCart(
+                                    cartItem.food, cartItem.selectedAddons);
+                              },
+                              onDecrement: () {
+                                restaurant.removeFromCart(cartItem);
+                              },
                             )
                           ],
                         ),
-
-                        Spacer(),
-
                         // increment or decrement quantity
-
-                        QuantitySelector(
-                          quantity: cartItem.quantity,
-                          food: cartItem.food,
-                          onIncrement: () {
-                            restaurant.addToCart(
-                                cartItem.food, cartItem.selectedAddons);
-                          },
-                          onDecrement: () {
-                            restaurant.removeFromCart(cartItem);
-                          },
-                        )
                       ],
                     ),
                   ),
@@ -84,7 +86,7 @@ class CartTile extends StatelessWidget {
                           left: 10, bottom: 10, right: 10),
                       children: cartItem.selectedAddons
                           .map((addon) => Padding(
-                                padding: EdgeInsets.only(right: 10),
+                                padding: const EdgeInsets.only(right: 10),
                                 child: FilterChip(
                                   label: Row(
                                     children: [
