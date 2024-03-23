@@ -33,6 +33,7 @@ migrate_working_dir/
 
 # custom
 .firebase/
+devtools_options.yaml
 
 # Symbolication related
 app.*.symbols

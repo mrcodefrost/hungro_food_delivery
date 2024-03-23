@@ -12,16 +12,25 @@ class CustomDrawerTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 25.0),
-      child: ListTile(
-        title: Text(
-          text,
-          style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(25),
+          onTap: onTap,
+          splashColor: Theme.of(context).colorScheme.tertiary,
+          highlightColor: Colors.transparent,
+          child: ListTile(
+            dense: true,
+            title: Text(
+              text,
+            ),
+            textColor: Theme.of(context).colorScheme.inversePrimary,
+            leading: Icon(
+              icon,
+            ),
+            iconColor: Theme.of(context).colorScheme.inversePrimary,
+          ),
         ),
-        leading: Icon(
-          icon,
-          color: Theme.of(context).colorScheme.inversePrimary,
-        ),
-        onTap: onTap,
       ),
     );
   }

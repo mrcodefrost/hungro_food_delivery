@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/domain/auth_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_drawer_tile.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../../themes/theme_provider.dart';
 import '../settings_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -43,14 +45,33 @@ class CustomDrawer extends StatelessWidget {
             icon: Icons.home,
           ),
 
+          Provider.of<ThemeProvider>(context, listen: false).isDarkMode
+              ? CustomDrawerTile(
+                  text: 'L I G H T  M O D E',
+                  onTap: () {
+                    Provider.of<ThemeProvider>(context, listen: false)
+                        .toggleTheme();
+                  },
+                  icon: Icons.sunny,
+                )
+              : CustomDrawerTile(
+                  text: 'D A R K  M O D E',
+                  onTap: () {
+                    Provider.of<ThemeProvider>(context, listen: false)
+                        .toggleTheme();
+                  },
+                  icon: Icons.nightlight,
+                ),
           // settings list tile
 
           CustomDrawerTile(
             text: 'S E T T I N G S',
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const SettingsScreen()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SettingsScreen()));
             },
             icon: Icons.settings,
           ),

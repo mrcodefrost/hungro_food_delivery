@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hungro_food_delivery/features/feature_one/data/model/restaurant.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/cart_screen.dart';
+import 'package:provider/provider.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   final Widget child;
@@ -12,15 +14,38 @@ class CustomSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       expandedHeight: 340,
-      collapsedHeight: 120,
+      collapsedHeight: 100,
       floating: false,
       pinned: true,
       actions: [
         // cart button
-        IconButton(
-            onPressed: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const CartScreen())),
-            icon: const Icon(Icons.shopping_cart))
+
+        Consumer<Restaurant>(builder: (context, restaurant, child) {
+          // fetching the cart
+          final userCart = restaurant.cart;
+
+          return IconButton(
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const CartScreen())),
+              icon: userCart.isEmpty
+                  ? const Icon(Icons.shopping_cart)
+                  : Stack(
+                      children: [
+                        const Icon(
+                          Icons.shopping_cart_checkout,
+                        ),
+                        Positioned(
+                          top: 1,
+                          right: 0,
+                          child: Icon(
+                            Icons.circle,
+                            color: Theme.of(context).colorScheme.primary,
+                            size: 10,
+                          ),
+                        )
+                      ],
+                    ));
+        })
       ],
       backgroundColor: Theme.of(context).colorScheme.background,
       foregroundColor: Theme.of(context).colorScheme.inversePrimary,

@@ -28,10 +28,18 @@ class QuantitySelector extends StatelessWidget {
           // decrease button
           GestureDetector(
             onTap: onDecrement,
-            child: Icon(
-              Icons.remove,
-              size: 20,
-              color: Theme.of(context).colorScheme.primary,
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+              ),
+              child: Icon(
+                Icons.remove,
+                size: 20,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
             ),
           ),
 
@@ -49,10 +57,18 @@ class QuantitySelector extends StatelessWidget {
           // increase button
           GestureDetector(
             onTap: onIncrement,
-            child: Icon(
-              Icons.add,
-              size: 20,
-              color: Theme.of(context).colorScheme.primary,
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+              ),
+              child: Icon(
+                Icons.add,
+                size: 20,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
             ),
           ),
         ],

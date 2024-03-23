@@ -52,45 +52,49 @@ class CartScreen extends StatelessWidget {
             )
           ],
         ),
-        body: Column(
-          children: [
-            // list of items in cart
-            Expanded(
-              child: Column(
-                children: [
-                  userCart.isEmpty
-                      ? const Center(
-                          child: Text('So lonely in here..'),
-                        )
-                      : Expanded(
-                          child: ListView.builder(
-                              itemCount: userCart.length,
-                              itemBuilder: (context, index) {
-                                //get individual cart item
-                                final cartItem = userCart[index];
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // list of items in cart
 
-                                // return cart tile UI
-                                return CartTile(cartItem: cartItem);
-                              }),
-                        ),
-                ],
+              userCart.isEmpty
+                  ? const Align(
+                      alignment: Alignment.center,
+                      child: Text('So lonely in here..'))
+                  : Expanded(
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: ListView.builder(
+                                itemCount: userCart.length,
+                                itemBuilder: (context, index) {
+                                  //get individual cart item
+                                  final cartItem = userCart[index];
+
+                                  // return cart tile UI
+                                  return CartTile(cartItem: cartItem);
+                                }),
+                          ),
+                        ],
+                      ),
+                    ),
+
+              // button to pay
+              userCart.isEmpty
+                  ? Container()
+                  : CustomButton(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PaymentScreen())),
+                      text: 'Go to Checkout'),
+
+              const SizedBox(
+                height: 25,
               ),
-            ),
-
-            // button to pay
-            userCart.isEmpty
-                ? Container()
-                : CustomButton(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PaymentScreen())),
-                    text: 'Go to Checkout'),
-
-            const SizedBox(
-              height: 25,
-            ),
-          ],
+            ],
+          ),
         ),
       );
     });

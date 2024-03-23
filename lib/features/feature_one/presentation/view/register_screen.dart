@@ -118,6 +118,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
             obscureText: true,
           ),
 
+          const SizedBox(
+            height: 25,
+          ),
+
           // sign in button
 
           CustomButton(onTap: register, text: 'Sign Up'),

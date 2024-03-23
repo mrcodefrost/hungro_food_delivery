@@ -14,7 +14,9 @@ class CartTile extends StatelessWidget {
     return Consumer<Restaurant>(
         builder: (context, restaurant, child) => Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
                 borderRadius: BorderRadius.circular(8),
               ),
               margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
