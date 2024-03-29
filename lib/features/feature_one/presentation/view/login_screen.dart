@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/domain/auth_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_button.dart';
+import 'package:lottie/lottie.dart';
 
 import 'widgets/custom_textfield.dart';
 
@@ -55,11 +56,16 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           // logo
 
-          Icon(
-            Icons.lock_open_rounded,
-            size: 100,
-            color: Theme.of(context).colorScheme.inversePrimary,
-          ),
+          Lottie.network(
+              'https://lottie.host/33f5c171-288f-4a91-b505-6292a7702ef3/3HC7ASfPjM.json',
+              height: 200,
+              width: 200),
+
+          // Icon(
+          //   Icons.lock_open_rounded,
+          //   size: 100,
+          //   color: Theme.of(context).colorScheme.inversePrimary,
+          // ),
 
           const SizedBox(
             height: 25,
