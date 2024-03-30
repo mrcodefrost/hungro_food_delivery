@@ -13,7 +13,6 @@ void main() async {
     MultiProvider(
       providers: [
         // theme provider
-
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
 
         // restaurant provider
