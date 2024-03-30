@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/cart_item.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/food.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Restaurant extends ChangeNotifier {
   // list of food menu
@@ -240,7 +243,7 @@ class Restaurant extends ChangeNotifier {
   ];
 
   // user cart
-  final List<CartItem> _cart = [];
+  List<CartItem> _cart = [];
 
   // delivery address ( which user can change/update )
   String _deliveryAddress = 'Enter your address';
@@ -250,6 +253,12 @@ class Restaurant extends ChangeNotifier {
   List<Food> get menu => _menu;
   List<CartItem> get cart => _cart;
   String get deliveryAddress => _deliveryAddress;
+
+  // CONSTRUCTOR
+  Restaurant() {
+    // Call a method to fetch and update the cart items when the class is instantiated
+    getSavedCartItems();
+  }
 
   // OPERATIONS
 
@@ -278,7 +287,25 @@ class Restaurant extends ChangeNotifier {
     else {
       _cart.add(CartItem(food: food, selectedAddons: selectedAddons));
     }
+
+    autoSaveCart();
     notifyListeners();
+  }
+
+  // save the cart to shared preferences
+  void autoSaveCart() async {
+    if (cart.isNotEmpty) {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      // Convert each CartItem object into a Map
+      List<Map<String, dynamic>> cartItemsJson =
+          cart.map((item) => item.toJson()).toList();
+
+      // Convert the list of Maps into a JSON string
+      String cartItemsString = jsonEncode(cartItemsJson);
+
+      // Save the JSON string to SharedPreferences
+      prefs.setString('cartItems', cartItemsString);
+    }
   }
 
 // remove from cart
@@ -294,6 +321,7 @@ class Restaurant extends ChangeNotifier {
       }
     }
 
+    autoSaveCart();
     notifyListeners();
   }
 
@@ -330,7 +358,29 @@ class Restaurant extends ChangeNotifier {
 
   void clearCart() {
     _cart.clear();
+
+    autoClearCart();
     notifyListeners();
+  }
+
+  // remove the entry in shared preferences
+
+  void autoClearCart() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('cartItems'); // removes specifically just the cartItems
+  }
+
+  // fetching the saved cart from shared preferences
+  Future<void> getSavedCartItems() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? cartItemsJson = prefs.getString('cartItems');
+
+    if (cartItemsJson != null) {
+      final List<dynamic> cartItemsData = jsonDecode(cartItemsJson);
+      _cart = cartItemsData.map((data) => CartItem.fromJson(data)).toList();
+    } else {
+      _cart = []; // in case user clean installs the app
+    }
   }
 
 // update delivery address
