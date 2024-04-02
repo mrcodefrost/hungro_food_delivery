@@ -23,7 +23,10 @@ class FoodTile extends StatelessWidget {
                     child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(food.name),
+                    Text(
+                      food.name,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     Text(
                       'Rs.${food.price}',
                       style: TextStyle(
@@ -46,12 +49,44 @@ class FoodTile extends StatelessWidget {
                 ),
                 // food image
 
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    food.imagePath,
-                    height: 120,
-                  ),
+                Column(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        food.imagePath,
+                        height: 120,
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            style: BorderStyle.solid,
+                            color: Theme.of(context).colorScheme.primary,
+                          )),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Add',
+                            style: TextStyle(
+                              color:
+                                  Theme.of(context).colorScheme.inversePrimary,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 2.5,
+                          ),
+                          Icon(
+                            Icons.add,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

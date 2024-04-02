@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/domain/auth_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_drawer_tile.dart';
+import 'package:hungro_food_delivery/utils/app_constants.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../themes/theme_provider.dart';
@@ -21,14 +23,10 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         children: [
           // app logo
-          Padding(
-            padding: const EdgeInsets.only(top: 100.0),
-            child: Icon(
-              Icons.lock_open_rounded,
-              size: 80,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-          ),
+
+          const SizedBox(height: 50,),
+
+          Lottie.network(AppImages.logo, height: 200, width: 200),
 
           Padding(
             padding: const EdgeInsets.all(25.0),

@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/cart_item.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/food.dart';
+import 'package:hungro_food_delivery/utils/app_constants.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,8 +17,7 @@ class Restaurant extends ChangeNotifier {
     // slides
     Food(
         name: MenuStrings.paneerChiliDry,
-        description:
-            'Cottage cheese, chillies, bell peppers, completely hawker style',
+        description: MenuStrings.paneerChiliDryDescription,
         imagePath: MenuStrings.paneerChiliDryImg,
         price: 450,
         category: FoodCategory.slides,
@@ -26,8 +26,7 @@ class Restaurant extends ChangeNotifier {
         ]),
     Food(
         name: MenuStrings.springRolls,
-        description:
-            'Crispy rolls filled with vegetables, bean sprouts, glass noodles, spices with sweet chilli dip',
+        description: MenuStrings.springRollsDescription,
         imagePath: MenuStrings.springRollsImg,
         price: 450,
         category: FoodCategory.slides,
@@ -36,8 +35,7 @@ class Restaurant extends ChangeNotifier {
         ]),
     Food(
         name: MenuStrings.vegManchurianDry,
-        description:
-            'Minced vegetable manchurian ball in soya chillI sauce & coriander',
+        description: MenuStrings.vegManchurianDryDescription,
         imagePath: MenuStrings.vegManchurianDryImg,
         price: 450,
         category: FoodCategory.slides,
@@ -46,8 +44,7 @@ class Restaurant extends ChangeNotifier {
         ]),
     Food(
         name: MenuStrings.edamame,
-        description:
-            'Edamame, smoked chilies, roast garlic, Himalayan pink salt',
+        description: MenuStrings.edamameDescription,
         imagePath: MenuStrings.edamameImg,
         price: 450,
         category: FoodCategory.slides,
@@ -56,7 +53,7 @@ class Restaurant extends ChangeNotifier {
         ]),
     Food(
         name: MenuStrings.tacos,
-        description: 'Taco shells, shiitake mushrooms, vegetables, sweet basil',
+        description: MenuStrings.tacosDescription,
         imagePath: MenuStrings.tacosImg,
         price: 450,
         category: FoodCategory.slides,
@@ -69,7 +66,7 @@ class Restaurant extends ChangeNotifier {
     // rice - japanese, kimchi, wok
     Food(
         name: MenuStrings.chiliGarlicFriedRice,
-        description: 'Roast chilli and garlic fried rice',
+        description: MenuStrings.chiliGarlicFriedRiceDescription,
         imagePath: MenuStrings.chiliGarlicFriedRiceImg,
         price: 400,
         category: FoodCategory.rice,
@@ -78,7 +75,7 @@ class Restaurant extends ChangeNotifier {
         ]),
     Food(
         name: MenuStrings.japaneseFriedRice,
-        description: 'Sticky rice, shiitake, spring onion',
+        description: MenuStrings.japaneseFriedRiceDescription,
         imagePath: MenuStrings.japaneseFriedRiceImg,
         price: 295,
         category: FoodCategory.rice,
@@ -87,7 +84,7 @@ class Restaurant extends ChangeNotifier {
         ]),
     Food(
         name: MenuStrings.kimchiFriedRice,
-        description: 'Korean spiced fried rice with kimchi',
+        description: MenuStrings.kimchiFriedRiceDescription,
         imagePath: MenuStrings.kimchiFriedRiceImg,
         price: 310,
         category: FoodCategory.rice,
@@ -96,7 +93,7 @@ class Restaurant extends ChangeNotifier {
         ]),
     Food(
         name: MenuStrings.vegWokTossedRice,
-        description: 'Wok tossed rice with veg',
+        description: MenuStrings.vegWokTossedRiceDescription,
         imagePath: MenuStrings.vegWokTossedRiceImg,
         price: 310,
         category: FoodCategory.rice,
@@ -107,7 +104,7 @@ class Restaurant extends ChangeNotifier {
     // Noodles
     Food(
       name: MenuStrings.chiliGarlicNoodles,
-      description: 'Fiery freshly made noodles with roast garlic & chilli',
+      description: MenuStrings.chiliGarlicNoodlesDescription,
       imagePath: MenuStrings.chiliGarlicNoodlesImg,
       price: 250,
       category: FoodCategory.noodles,
@@ -117,7 +114,7 @@ class Restaurant extends ChangeNotifier {
     ),
     Food(
       name: MenuStrings.hakkaNoodles,
-      description: 'Simply hakka freshly made noodles',
+      description: MenuStrings.hakkaNoodlesDescription,
       imagePath: MenuStrings.hakkaNoodlesImg,
       price: 270,
       category: FoodCategory.noodles,
@@ -127,7 +124,7 @@ class Restaurant extends ChangeNotifier {
     ),
     Food(
       name: MenuStrings.padThaiNoodles,
-      description: 'Quintessential Thai flat noodles made the Thai hawker way',
+      description: MenuStrings.padThaiNoodlesDescription,
       imagePath: MenuStrings.padThaiNoodlesImg,
       price: 290,
       category: FoodCategory.noodles,
@@ -137,7 +134,7 @@ class Restaurant extends ChangeNotifier {
     ),
     Food(
       name: MenuStrings.soggyNoodles,
-      description: 'Slightly wet wok cooked freshly made noodles',
+      description: MenuStrings.soggyNoodlesDescription,
       imagePath: MenuStrings.soggyNoodlesImg,
       price: 310,
       category: FoodCategory.noodles,
@@ -147,7 +144,7 @@ class Restaurant extends ChangeNotifier {
     ),
     Food(
       name: MenuStrings.teppanyakiNoodles,
-      description: 'Cooked Japanese way teppanyaki style',
+      description: MenuStrings.teppanyakiNoodlesDescription,
       imagePath: MenuStrings.teppanyakiNoodlesImg,
       price: 330,
       category: FoodCategory.noodles,
@@ -159,7 +156,7 @@ class Restaurant extends ChangeNotifier {
 // Dimsums
     Food(
       name: MenuStrings.beetrootDumplings,
-      description: 'Beetroot with herbs dumplings',
+      description: MenuStrings.beetrootDumplingsDescription,
       imagePath: MenuStrings.beetrootDumplingsImg,
       price: 220,
       category: FoodCategory.dimsums,
@@ -169,7 +166,7 @@ class Restaurant extends ChangeNotifier {
     ),
     Food(
       name: MenuStrings.pattayaDimsums,
-      description: 'Shredded greens, kaffir lime leaves, dumplings',
+      description: MenuStrings.pattayaDimsumsDescription,
       imagePath: MenuStrings.pattayaDimsumsImg,
       price: 240,
       category: FoodCategory.dimsums,
@@ -179,7 +176,7 @@ class Restaurant extends ChangeNotifier {
     ),
     Food(
       name: MenuStrings.hunanMushrooms,
-      description: 'Assorted mushrooms with hoisin & ginger (6 Pieces)',
+      description: MenuStrings.hunanMushroomsDescription,
       imagePath: MenuStrings.hunanMushroomsImg,
       price: 260,
       category: FoodCategory.dimsums,
@@ -189,7 +186,7 @@ class Restaurant extends ChangeNotifier {
     ),
     Food(
       name: MenuStrings.basilChicken,
-      description: 'Chicken dumplings with sweet basil, chilli & Thai herbs',
+      description: MenuStrings.basilChickenDescription,
       imagePath: MenuStrings.basilChickenImg,
       price: 280,
       category: FoodCategory.dimsums,
@@ -201,7 +198,7 @@ class Restaurant extends ChangeNotifier {
 // Soups
     Food(
       name: MenuStrings.vegChineseWontons,
-      description: 'Wontons, vegetables, clear broth',
+      description: MenuStrings.vegChineseWontonsDescription,
       imagePath: MenuStrings.vegChineseWontonsImg,
       price: 180,
       category: FoodCategory.soups,
@@ -211,7 +208,7 @@ class Restaurant extends ChangeNotifier {
     ),
     Food(
       name: MenuStrings.vegHotAndSour,
-      description: 'Shredded vegetables, tofu, pepper, premium soya sauce',
+      description: MenuStrings.vegHotAndSourDescription,
       imagePath: MenuStrings.vegHotAndSourImg,
       price: 200,
       category: FoodCategory.soups,
@@ -221,8 +218,7 @@ class Restaurant extends ChangeNotifier {
     ),
     Food(
       name: MenuStrings.vegKhaoSueySoup,
-      description:
-          'Burmese coconut broth with freshly made noodles and vegetables',
+      description: MenuStrings.vegKhaoSueySoupDescription,
       imagePath: MenuStrings.vegKhaoSueySoupImg,
       price: 220,
       category: FoodCategory.soups,
@@ -234,7 +230,7 @@ class Restaurant extends ChangeNotifier {
 // Drinks
     Food(
       name: MenuStrings.limeWater,
-      description: 'Refreshing lime juice drink with shikanji masala',
+      description: MenuStrings.limeWaterDescription,
       imagePath: MenuStrings.limeWaterImg,
       price: 100,
       category: FoodCategory.drinks,
@@ -440,85 +436,3 @@ class Restaurant extends ChangeNotifier {
 }
 
 // Food categories { slides, rice, noodles, dimsums, soups, sushi, drinks }
-
-class MenuStrings {
-  // names and image  paths
-
-  // slides
-  static const String paneerChiliDry = 'Paneer Chili Dry';
-  static const String paneerChiliDryImg =
-      'assets/images/slides/paneerChiliDry.jpg';
-  static const String springRolls = 'Spring Rolls';
-  static const String springRollsImg = 'assets/images/slides/springRolls.jpg';
-  static const String vegManchurianDry = 'Veg Manchurian Dry';
-  static const String vegManchurianDryImg =
-      'assets/images/slides/vegManchurianDry.jpg';
-  static const String edamame = 'Edamame';
-  static const String edamameImg = 'assets/images/slides/edamame.jpg';
-  static const String tacos = 'Tacos';
-  static const String tacosImg = 'assets/images/slides/tacos.jpg';
-
-  // rice
-  static const String chiliGarlicFriedRice = 'Chili Garlic Fried Rice';
-  static const String chiliGarlicFriedRiceImg =
-      'assets/images/rice/chiliGarlicFriedRice.jpg';
-  static const String japaneseFriedRice = 'Japanese Fried Rice';
-  static const String japaneseFriedRiceImg =
-      'assets/images/rice/japaneseFriedRice.jpg';
-  static const String kimchiFriedRice = 'Kimchi Fried Rice';
-  static const String kimchiFriedRiceImg =
-      'assets/images/rice/kimchiFriedRice.jpg';
-  static const String vegWokTossedRice = 'Veg Wok Tossed Rice';
-  static const String vegWokTossedRiceImg =
-      'assets/images/rice/vegWokTossedRice.jpg';
-
-  // noodles
-
-  static const String chiliGarlicNoodles = 'Chili Garlic Noodles';
-  static const String chiliGarlicNoodlesImg =
-      'assets/images/noodles/chiliGarlicNoodles.jpg';
-  static const String hakkaNoodles = 'Hakka Noodles';
-  static const String hakkaNoodlesImg =
-      'assets/images/noodles/hakkaNoodles.jpg';
-  static const String padThaiNoodles = 'Pad Thai Noodles';
-  static const String padThaiNoodlesImg =
-      'assets/images/noodles/padThaiNoodles.jpg';
-  static const String soggyNoodles = 'Soggy Noodles';
-  static const String soggyNoodlesImg =
-      'assets/images/noodles/soggyNoodles.jpg';
-  static const String teppanyakiNoodles = 'Teppanyaki Noodles';
-  static const String teppanyakiNoodlesImg =
-      'assets/images/noodles/teppanyakiNoodles.jpg';
-
-  // dimsums
-
-  static const String beetrootDumplings = 'Beetroot Dumplings';
-  static const String beetrootDumplingsImg =
-      'assets/images/dimsums/beetrootDumplings.jpg';
-  static const String pattayaDimsums = 'Pattaya Dimsums';
-  static const String pattayaDimsumsImg =
-      'assets/images/dimsums/pattayaDimsums.jpg';
-  static const String hunanMushrooms = 'Hunan Mushrooms';
-  static const String hunanMushroomsImg =
-      'assets/images/dimsums/hunanMushrooms.jpg';
-  static const String basilChicken = 'Basil Chicken';
-  static const String basilChickenImg =
-      'assets/images/dimsums/basilChicken.jpg';
-
-  // soups
-
-  static const String vegChineseWontons = 'Veg Chinese Wontons';
-  static const String vegChineseWontonsImg =
-      'assets/images/soups/vegChineseWontons.jpg';
-  static const String vegHotAndSour = 'Veg Hot and Sour';
-  static const String vegHotAndSourImg =
-      'assets/images/soups/vegHotAndSour.jpg';
-  static const String vegKhaoSueySoup = 'Veg Khao Suey Soup';
-  static const String vegKhaoSueySoupImg =
-      'assets/images/soups/vegKhaoSueySoup.jpg';
-
-  // drinks
-
-  static const String limeWater = 'Lime Water';
-  static const String limeWaterImg = 'assets/images/drinks/limeWater.jpg';
-}

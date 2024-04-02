@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/restaurant.dart';
 import 'package:hungro_food_delivery/features/feature_one/domain/auth_gate.dart';
+import 'package:hungro_food_delivery/features/feature_one/domain/location_service.dart';
 import 'package:hungro_food_delivery/firebase_options.dart';
 import 'package:hungro_food_delivery/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,9 @@ void main() async {
 
         // restaurant provider
         ChangeNotifierProvider(create: (context) => Restaurant()),
+
+        // Location Provider
+        ChangeNotifierProvider(create: (context) => LocationService()),
       ],
       child: const MyApp(),
     ),
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hungro',
       debugShowCheckedModeBanner: false,
-      home: const AuthGate(),
+      home: const SelectionArea(child: AuthGate()),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }

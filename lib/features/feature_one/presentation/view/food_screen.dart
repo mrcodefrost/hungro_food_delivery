@@ -163,7 +163,7 @@ class _FoodScreenState extends State<FoodScreen> {
             child: Container(
               margin: const EdgeInsets.only(top: 15, left: 25),
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                color: Theme.of(context).colorScheme.tertiary,
                 shape: BoxShape.circle,
               ),
               child: IconButton(

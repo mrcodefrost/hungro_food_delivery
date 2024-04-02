@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/domain/auth_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_button.dart';
+import 'package:hungro_food_delivery/utils/app_constants.dart';
 import 'package:lottie/lottie.dart';
 
 import 'widgets/custom_textfield.dart';
@@ -51,93 +52,109 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // logo
-
-          Lottie.network(
-              'https://lottie.host/33f5c171-288f-4a91-b505-6292a7702ef3/3HC7ASfPjM.json',
-              height: 200,
-              width: 200),
-
-          // Icon(
-          //   Icons.lock_open_rounded,
-          //   size: 100,
-          //   color: Theme.of(context).colorScheme.inversePrimary,
-          // ),
-
-          const SizedBox(
-            height: 25,
-          ),
-
-          // message, app slogan
-
-          Text(
-            'HUNGRO',
-            style: TextStyle(
-              fontSize: 16,
-              color: Theme.of(context).colorScheme.inversePrimary,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // logo
+            const SizedBox(
+              height: 65,
             ),
-          ),
+            Lottie.network(AppImages.logo, height: 200, width: 200),
 
-          const SizedBox(
-            height: 25,
-          ),
+            // Icon(
+            //   Icons.lock_open_rounded,
+            //   size: 100,
+            //   color: Theme.of(context).colorScheme.inversePrimary,
+            // ),
 
-          // email textfield
+            const SizedBox(
+              height: 25,
+            ),
 
-          CustomTextField(
-            textEditingController: emailController,
-            hintText: 'Email Address',
-            obscureText: false,
-          ),
+            // message, app slogan
 
-          const SizedBox(
-            height: 10,
-          ),
-
-          // password textfield
-
-          CustomTextField(
-            textEditingController: passwordController,
-            hintText: 'Password',
-            obscureText: true,
-          ),
-
-          const SizedBox(
-            height: 25,
-          ),
-          // sign in button
-
-          CustomButton(onTap: login, text: 'Sign In'),
-
-          const SizedBox(
-            height: 25,
-          ),
-
-          // not a member? register now
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Not a member?'),
-              const SizedBox(
-                width: 4,
+            Text(
+              'HUNGRO',
+              style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.inversePrimary,
               ),
-              GestureDetector(
-                onTap: widget.onTap,
-                child: Text(
-                  'Register now',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                    fontWeight: FontWeight.bold,
+            ),
+
+            const SizedBox(
+              height: 25,
+            ),
+
+            Text(
+              'Demo\n'
+              'ID: testone@test.com\n'
+              'Pass: testone',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+
+            const SizedBox(
+              height: 25,
+            ),
+
+            // email textfield
+
+            CustomTextField(
+              textEditingController: emailController,
+              hintText: 'Email Address',
+              obscureText: false,
+            ),
+
+            const SizedBox(
+              height: 10,
+            ),
+
+            // password textfield
+
+            CustomTextField(
+              textEditingController: passwordController,
+              hintText: 'Password',
+              obscureText: true,
+            ),
+
+            const SizedBox(
+              height: 25,
+            ),
+            // sign in button
+
+            CustomButton(onTap: login, text: 'Sign In'),
+
+            const SizedBox(
+              height: 25,
+            ),
+
+            // not a member? register now
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Not a member?'),
+                const SizedBox(
+                  width: 4,
+                ),
+                GestureDetector(
+                  onTap: widget.onTap,
+                  child: Text(
+                    'Register now',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

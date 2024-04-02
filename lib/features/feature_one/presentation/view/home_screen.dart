@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/food.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/restaurant.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/food_screen.dart';
-import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/current_location_widget.dart';
+import 'package:hungro_food_delivery/features/feature_one/presentation/view/location_search_screen.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_drawer.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_sliver_app_bar.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_tab_bar_widget.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/description_box_widget.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/food_tile_widget.dart';
 import 'package:provider/provider.dart';
+
+import 'widgets/current_location_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -86,6 +88,15 @@ class _HomeScreenState extends State<HomeScreen>
                     endIndent: 25,
                     color: Theme.of(context).colorScheme.secondary,
                   ),
+
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LocationSearchScreen()));
+                      },
+                      child: Text('Search Location')),
 
                   // my current location
                   CurrentLocation(),

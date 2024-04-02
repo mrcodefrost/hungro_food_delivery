@@ -10,5 +10,6 @@ ThemeData darkMode = ThemeData(
       tertiary: Color.fromARGB(255, 47, 47, 47),
       // inversePrimary: Colors.grey.shade300,
       // inversePrimary: Color(0xffc52233),
-      inversePrimary: Color(0xffab2836),
+      // inversePrimary: Color(0xfff46036),
+      inversePrimary: Color(0xffdc851f),
     ));
