@@ -24,9 +24,11 @@ class CustomDrawer extends StatelessWidget {
         children: [
           // app logo
 
-          const SizedBox(height: 50,),
+          const SizedBox(
+            height: 50,
+          ),
 
-          Lottie.network(AppImages.logo, height: 200, width: 200),
+          Lottie.network(AppAnimations.logo, height: 200, width: 200),
 
           Padding(
             padding: const EdgeInsets.all(25.0),

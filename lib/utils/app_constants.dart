@@ -3,7 +3,7 @@ class AppKeys {
   static const String mapKeyWeb = 'AIzaSyC9CgmRqOJV3WigkEfnPqh-4T_HkRwnE9A';
 }
 
-class AppImages {
+class AppAnimations {
   static const String logo =
       'https://lottie.host/33f5c171-288f-4a91-b505-6292a7702ef3/3HC7ASfPjM.json';
 }
