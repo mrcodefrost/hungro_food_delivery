@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/restaurant.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/cart_screen.dart';
@@ -13,10 +14,11 @@ class CustomSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: 380,
+      expandedHeight: kIsWeb ? 340 : 380,
       collapsedHeight: 100,
       floating: false,
       pinned: true,
+      stretchTriggerOffset: 200,
       actions: [
         // cart button
 

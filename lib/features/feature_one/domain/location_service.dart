@@ -14,7 +14,7 @@ class LocationService extends ChangeNotifier {
         '/maps/api/place/autocomplete/json', // unecoded path
         {
           'input': query, // query parameter
-          'key': AppKeys.mapKey,
+          'key': AppKeys.mapKeyAll,
         });
 
     // making a GET request

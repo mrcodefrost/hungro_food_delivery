@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/food.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/restaurant.dart';
@@ -89,14 +90,21 @@ class _HomeScreenState extends State<HomeScreen>
                     color: Theme.of(context).colorScheme.secondary,
                   ),
 
-                  TextButton(
+                  Visibility(
+                    visible:
+                        !kIsWeb, // Show the widget only if not running on web
+                    child: TextButton(
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LocationSearchScreen()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LocationSearchScreen(),
+                          ),
+                        );
                       },
-                      child: Text('Search Location')),
+                      child: const Text('Search Location'),
+                    ),
+                  ),
 
                   // my current location
                   CurrentLocation(),

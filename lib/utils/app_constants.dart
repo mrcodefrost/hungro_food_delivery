@@ -1,5 +1,6 @@
 class AppKeys {
-  static const String mapKey = 'AIzaSyCkYputgusqFyWoxFzifW8iwCRru6paGuU';
+  static const String mapKeyAll = 'AIzaSyCx7UClBpoGfwNQ3eAJbqdefVz7jftp5v4';
+  static const String mapKeyWeb = 'AIzaSyC9CgmRqOJV3WigkEfnPqh-4T_HkRwnE9A';
 }
 
 class AppImages {

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hungro_food_delivery/features/feature_one/data/model/restaurant.dart';
-import 'package:hungro_food_delivery/features/feature_one/domain/location_service.dart';
 import 'package:provider/provider.dart';
+
+import '../../data/model/restaurant.dart';
+import '../../domain/location_service.dart';
 
 class LocationSearchScreen extends StatelessWidget {
   LocationSearchScreen({super.key});
