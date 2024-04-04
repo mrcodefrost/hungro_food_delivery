@@ -63,7 +63,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
     _composition = NetworkLottie(AppAnimations.logo).load();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
