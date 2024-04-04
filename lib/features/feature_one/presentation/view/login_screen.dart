@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+
 import 'package:hungro_food_delivery/features/feature_one/domain/auth_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_button.dart';
 import 'package:hungro_food_delivery/utils/app_constants.dart';
@@ -71,118 +73,118 @@ class _LoginScreenState extends State<LoginScreen> {
         // always have a scrollable child
         onRefresh: _refresh,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // logo
-              const SizedBox(
-                height: 65,
+        child: ListView(
+          children: [
+            // logo
+            const SizedBox(
+              height: 65,
+            ),
+
+            kIsWeb ?  Icon(Icons.fastfood_rounded, size: 200, color: Theme.of(context).colorScheme.inversePrimary,) : FutureBuilder<LottieComposition>(
+                future: _composition,
+                builder: (context, snapshot) {
+                  var composition = snapshot.data;
+                  if (composition != null) {
+                    return Lottie(
+                        composition: composition,
+                        frameRate: FrameRate.max,
+                        height: 200,
+                        width: 200);
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                }),
+
+
+            const SizedBox(
+              height: 25,
+            ),
+
+            // message, app slogan
+
+            Text(
+              'HUNGRO',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.inversePrimary,
               ),
-              FutureBuilder<LottieComposition>(
-                  future: _composition,
-                  builder: (context, snapshot) {
-                    var composition = snapshot.data;
-                    if (composition != null) {
-                      return Lottie(
-                          composition: composition,
-                          frameRate: FrameRate.max,
-                          height: 200,
-                          width: 200);
-                    } else {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                  }),
+            ),
 
-              const SizedBox(
-                height: 25,
+            const SizedBox(
+              height: 25,
+            ),
+
+            Text(
+              'Demo\n'
+              'ID: testone@test.com\n'
+              'Pass: testone',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.inversePrimary,
               ),
+            ),
 
-              // message, app slogan
+            const SizedBox(
+              height: 25,
+            ),
 
-              Text(
-                'HUNGRO',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Theme.of(context).colorScheme.inversePrimary,
+            // email textfield
+
+            CustomTextField(
+              textEditingController: emailController,
+              hintText: 'Email Address',
+              obscureText: false,
+            ),
+
+            const SizedBox(
+              height: 10,
+            ),
+
+            // password textfield
+
+            CustomTextField(
+              textEditingController: passwordController,
+              hintText: 'Password',
+              obscureText: true,
+            ),
+
+            const SizedBox(
+              height: 25,
+            ),
+            // sign in button
+
+            CustomButton(onTap: login, text: 'Sign In'),
+
+            const SizedBox(
+              height: 25,
+            ),
+
+            // not a member? register now
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Not a member?'),
+                const SizedBox(
+                  width: 4,
                 ),
-              ),
-
-              const SizedBox(
-                height: 25,
-              ),
-
-              Text(
-                'Demo\n'
-                'ID: testone@test.com\n'
-                'Pass: testone',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Theme.of(context).colorScheme.inversePrimary,
-                ),
-              ),
-
-              const SizedBox(
-                height: 25,
-              ),
-
-              // email textfield
-
-              CustomTextField(
-                textEditingController: emailController,
-                hintText: 'Email Address',
-                obscureText: false,
-              ),
-
-              const SizedBox(
-                height: 10,
-              ),
-
-              // password textfield
-
-              CustomTextField(
-                textEditingController: passwordController,
-                hintText: 'Password',
-                obscureText: true,
-              ),
-
-              const SizedBox(
-                height: 25,
-              ),
-              // sign in button
-
-              CustomButton(onTap: login, text: 'Sign In'),
-
-              const SizedBox(
-                height: 25,
-              ),
-
-              // not a member? register now
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Not a member?'),
-                  const SizedBox(
-                    width: 4,
-                  ),
-                  GestureDetector(
-                    onTap: widget.onTap,
-                    child: Text(
-                      'Register now',
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                        fontWeight: FontWeight.bold,
-                      ),
+                GestureDetector(
+                  onTap: widget.onTap,
+                  child: Text(
+                    'Register now',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ],
-              )
-            ],
-          ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
