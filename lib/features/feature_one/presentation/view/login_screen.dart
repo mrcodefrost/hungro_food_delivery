@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
       showDialog(
           context: context,
           builder: (context) => AlertDialog(
-                title: Text(e.toString()),
+                title: Text('Error Occured : $e'),
               ));
     }
 
