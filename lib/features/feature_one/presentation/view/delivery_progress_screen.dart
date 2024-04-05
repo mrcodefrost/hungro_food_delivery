@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hungro_food_delivery/database/firestore_service.dart';
+import 'package:hungro_food_delivery/features/common/data/provider/remote/firestore_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/restaurant.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/receipt_widget.dart';
 import 'package:provider/provider.dart';

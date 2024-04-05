@@ -1,7 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:hungro_food_delivery/features/feature_one/domain/auth_service.dart';
+import 'package:hungro_food_delivery/features/authentication/data/provider/remote/auth_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_drawer_tile.dart';
-import 'package:hungro_food_delivery/utils/app_constants.dart';
+import 'package:hungro_food_delivery/utils/constants/app_constants.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
@@ -28,7 +29,13 @@ class CustomDrawer extends StatelessWidget {
             height: 50,
           ),
 
-          Lottie.network(AppAnimations.logo, height: 200, width: 200),
+          kIsWeb
+              ? Icon(
+                  Icons.fastfood_rounded,
+                  size: 200,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                )
+              : Lottie.network(AppAnimations.logo, height: 200, width: 200),
 
           Padding(
             padding: const EdgeInsets.all(25.0),

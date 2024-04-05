@@ -4,7 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/cart_item.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/food.dart';
-import 'package:hungro_food_delivery/utils/app_constants.dart';
+import 'package:hungro_food_delivery/utils/constants/app_constants.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

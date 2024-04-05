@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:hungro_food_delivery/features/feature_one/data/model/search_autocomplete_response.dart';
-import 'package:hungro_food_delivery/utils/app_constants.dart';
+import 'package:hungro_food_delivery/utils/constants/app_constants.dart';
 
 import '../data/model/autocomplete_predictions.dart';
 

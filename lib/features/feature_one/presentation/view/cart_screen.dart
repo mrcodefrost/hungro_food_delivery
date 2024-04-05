@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/feature_one/data/model/restaurant.dart';
-import 'package:hungro_food_delivery/features/feature_one/presentation/view/payment_screen.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/cart_tile_widget.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
+
+import '../../../payment/presentation/view/screens/payment_screen.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
