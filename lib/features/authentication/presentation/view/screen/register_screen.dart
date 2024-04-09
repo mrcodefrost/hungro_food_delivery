@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/authentication/data/provider/remote/auth_service.dart';
+import 'package:hungro_food_delivery/utils/validations.dart';
 
 import '../../../../feature_one/presentation/view/widgets/custom_button.dart';
 import '../../../../feature_one/presentation/view/widgets/custom_textfield.dart';
@@ -88,10 +89,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
           // email textfield
 
-          CustomTextField(
+          CustomTextFormField(
             textEditingController: emailController,
             hintText: 'Email Address',
             obscureText: false,
+            inputFormatters: [
+              Validations.trimSpaces(),
+            ],
           ),
 
           const SizedBox(
@@ -100,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
           // password textfield
 
-          CustomTextField(
+          CustomTextFormField(
             textEditingController: passwordController,
             hintText: 'Password',
             obscureText: true,
@@ -112,7 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
           // confirm password textfield
 
-          CustomTextField(
+          CustomTextFormField(
             textEditingController: confirmPasswordController,
             hintText: 'Password',
             obscureText: true,

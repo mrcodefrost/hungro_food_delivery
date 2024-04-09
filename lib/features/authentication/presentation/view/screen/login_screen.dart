@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hungro_food_delivery/features/authentication/data/provider/remote/auth_service.dart';
 import 'package:hungro_food_delivery/features/feature_one/presentation/view/widgets/custom_button.dart';
 import 'package:hungro_food_delivery/utils/constants/app_constants.dart';
+import 'package:hungro_food_delivery/utils/validations.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -204,10 +205,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     // email textfield
 
-                    CustomTextField(
+                    CustomTextFormField(
                       textEditingController: emailController,
                       hintText: 'Email Address',
                       obscureText: false,
+                      inputFormatters: [
+                        Validations.trimSpaces(),
+                      ],
                     ),
 
                     const SizedBox(
@@ -216,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     // password textfield
 
-                    CustomTextField(
+                    CustomTextFormField(
                       textEditingController: passwordController,
                       hintText: 'Password',
                       obscureText: true,

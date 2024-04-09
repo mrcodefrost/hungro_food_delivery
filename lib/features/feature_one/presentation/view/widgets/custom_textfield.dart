@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextFormField extends StatelessWidget {
   final TextEditingController textEditingController;
   final String hintText;
   final bool obscureText;
+  final List<TextInputFormatter>? inputFormatters;
 
-  const CustomTextField(
-      {super.key,
-      required this.textEditingController,
-      required this.hintText,
-      required this.obscureText});
+  const CustomTextFormField({
+    super.key,
+    required this.textEditingController,
+    required this.hintText,
+    required this.obscureText,
+    this.inputFormatters,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: TextField(
+      child: TextFormField(
         controller: textEditingController,
         obscureText: obscureText,
         decoration: InputDecoration(
@@ -29,6 +33,7 @@ class CustomTextField extends StatelessWidget {
             ),
             hintText: hintText,
             hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary)),
+        inputFormatters: inputFormatters,
       ),
     );
   }
