@@ -4,6 +4,24 @@ Hungro is an oriental cuisine restaurant app built using Flutter, available on A
 
 Hungro is already hosted and accessible via mobile and desktop browsers. https://hungro-50299.web.app/
 
+<div style="
+ display: flex;
+ justify-content: space-between;
+ ">
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/1.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/2.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/3.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/4.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/5.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/6.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/7.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/8.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/9.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/10.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/11.jpg?raw=true" width=250/>
+ <img src="https://github.com/mrcodefrost/hungro_food_delivery/blob/main/repo%20resources/12.jpg?raw=true" width=250/>
+</div>
+
 ## Overview
 
 Hungro is currently a single vendor app focused on the client side. However, there are plans to develop the business side in the future. It leverages Flutter for cross-platform development, allowing users to access the app on their preferred devices.
