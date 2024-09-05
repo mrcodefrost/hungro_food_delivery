@@ -19,6 +19,53 @@ Hungro is currently a single vendor app focused on the client side. However, the
 - **Cart Management**: Users can easily manage their cart, including emptying it when needed.
 - **Logout Functionality**: Allows users to securely log out of their accounts.
 
+### Platforms
+
+- Android
+- iOS
+- Web
+
+### Technologies Used
+
+- Flutter
+- Firebase
+
+### Installation
+
+1. Clone the repository to your local machine:
+
+ ```bash
+   git clone https://github.com/mrcodefrost/hungro_food_delivery.git
+ ```
+
+2. Navigate to the project directory:
+
+ ```bash
+   cd hungro_food_delivery
+ ```
+
+3. Install dependencies by running this command in IDE terminal:
+
+ ```bash
+   flutter pub get
+ ```
+
+4. Set up Firebase:
+
+If you haven't already, [sign in to your Firebase account](https://firebase.google.com/docs/web/setup).
+Install Firebase CLI globally using IDE Terminal:
+
+Log in to Firebase
+ ```bash
+   firebase login
+ ```
+
+Activate Flutterfire CLI
+ ```bash
+   flutter pub global activate flutterfire_cli
+ ```
+
+
 ## Future Development
 
 In the future, Hungro aims to expand its functionality by implementing the business side of the application. This will enhance the overall user experience and provide additional features for both users and restaurant owners.
